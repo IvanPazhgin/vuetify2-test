@@ -1,28 +1,26 @@
 <template>
-  <v-container>
-    <h3>{{title}}</h3>
-    <v-card
-        class="d-flex flex-row"
-        flat
-    >
-        <v-card
-            class="pa-2"
-            flat
-            v-for="({text, icon}, index) in tags"
-            :key="index"
-        >
-            <span class="mr-3" v-if="index"> • </span>
-            <excursion-tag :text="text" :icon="icon"/>
-        </v-card>
-    </v-card>
-  </v-container>
+  <div class="excursion-list">
+    <div class="excursion-list__excursion-item">
+      <div class="excursion-list__excursion-item_flex-wrap_nowrap"
+           v-for="({text, icon}, index) in tags"
+           :key="index"
+      >
+        <separator-icon v-if="index" :separator="separatorIcon" />
+        <excursion-tag :text="text" :icon="icon" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import ExcursionTag from "@/Pages/ExcursionTag";
+import SeparatorIcon from "@/Pages/SeparatorIcon";
 export default {
   name: "ExcursionItem",
-  components: {ExcursionTag},
+  components: {
+    ExcursionTag,
+    SeparatorIcon
+  },
 
   props: {
     title: {
@@ -32,11 +30,29 @@ export default {
     tags: {
       type: Array,
       required: true
+    },
+    separatorIcon: {
+      type: String,
+      required: true
     }
   }
 }
 </script>
 
 <style scoped>
-
+.excursion-list {
+  font-size: 1em;
+}
+.excursion-list__excursion-item {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 2em;
+}
+.excursion-list__excursion-item_flex-wrap_nowrap {
+  display: block;
+  white-space: nowrap;
+  height: 2em;
+  margin: 0.1em;
+}
 </style>

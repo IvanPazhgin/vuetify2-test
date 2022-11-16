@@ -1,14 +1,8 @@
 <template>
-<!-- <v-container class="v-flex">-->
-
    <span>
-     <v-icon v-if="icon" >
-       {{icon}}
-     </v-icon>
-     {{text}}
+     <v-icon v-if="icon"> {{ icon }} </v-icon>
+       {{text}}
    </span>
-
-<!-- </v-container>-->
 </template>
 
 <script>

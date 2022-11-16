@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <div v-for="{id, title, tags} in excursions" :key="id">
-      <excursion-item :title="title" :tags="tags" />
+      <excursion-item :title="title" :tags="tags" :separator-icon="separator" />
     </div>
   </v-container>
 </template>
@@ -16,7 +16,11 @@ export default {
     excursions: {
       type: Object,
       required: true
-    }
+    },
+    separator: {
+      type: String,
+      required: true
+    },
   }
 }
 </script>

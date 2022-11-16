@@ -1,51 +1,25 @@
 <template>
   <v-app>
-    <NavBar />
+<!--    <NavBar />-->
 
     <v-main>
-<!--      <SecondPage v-for="array2 in array" :key="array2"/>-->
-<!--      <SecondPage />-->
-
-<!--      <hr color="blue">-->
-<!--      <h3>App</h3>-->
-<!--      Пропсы:-->
-<!--      строка ниже - копия строки 20-->
-<!--      <h4 v-for="array2 in array" :key="array2">{{array2}}</h4>-->
-
-<!--      <hr color="orange">-->
-<!--      Оъект в App:-->
-<!--      <h4 v-for="item in obj" :key="item.message">{{ item.message }}</h4>-->
-<!--      <br />-->
-<!--      Массив в App:-->
-<!--      <h4 v-for="item in array" :key="item">{{ item }}</h4>-->
-
-<!--      <third-page obj2="" array2="" />-->
-<!--      <third-page obj2="obj2" array2="array2" />-->
-<!--      <third-page :array2="array" :obj2="obj" />-->
-
-        <excursion-list :excursions="excursions" />
-
+        <excursion-list :excursions="excursions" :separator="separator.icon" />
     </v-main>
+
   </v-app>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar";
-// import SecondPage from "@/Pages/SecondPage";
-// import ThirdPage from "@/Pages/ThirdPage";
+// import NavBar from "@/components/NavBar";
 import ExcursionList from "@/Pages/ExcursionList";
 export default {
   name: 'App',
   components: {
-    // SecondPage,
-    NavBar,
+    // NavBar,
     ExcursionList,
-    // ThirdPage,
   },
 
   data: () => ({
-    array: ['Историческая', 'На автобусе', '18 ноября', '6 часов', 'до 49'],
-
     excursions: [
       {
         id: '1',
@@ -93,22 +67,8 @@ export default {
       },
     ],
     separator: {icon: 'mdi-circle-small'},
-
-
-    obj: [
-        { message: 'foo' },
-        { message: 'bar' }
-    ],
   }),
 };
 </script>
 
-<style scoped>
-h4 {
-  /*display: flex;*/
-}
-
-h3 {
-  color: red
-}
-</style>
+<style scoped></style>
