@@ -1,7 +1,8 @@
 <template>
   <v-app>
     <v-main>
-        <excursion-list :excursions="excursions" :separator="separator.icon" />
+        <excursion-list :excursions="excursions" />
+<!--        <excursion-list :excursions="excursions" :separator="separator.icon" />-->
     </v-main>
   </v-app>
 </template>
@@ -61,7 +62,7 @@ export default {
         ],
       },
     ],
-    separator: {icon: 'mdi-circle-small'},
+    // separator: {icon: 'mdi-circle-small'},
   }),
 };
 </script>
