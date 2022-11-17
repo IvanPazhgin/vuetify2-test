@@ -39,20 +39,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.excursion-list {
-  font-size: 1em;
-}
-.excursion-list__excursion-item {
-  display: flex;
-  flex-wrap: wrap;
-  overflow: hidden;
-  height: 2em;
-}
-.excursion-list__excursion-item_flex-wrap_nowrap {
-  display: block;
-  white-space: nowrap;
-  height: 2em;
-  margin: 0.1em;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -1,21 +1,16 @@
 <template>
   <v-app>
-<!--    <NavBar />-->
-
     <v-main>
         <excursion-list :excursions="excursions" :separator="separator.icon" />
     </v-main>
-
   </v-app>
 </template>
 
 <script>
-// import NavBar from "@/components/NavBar";
 import ExcursionList from "@/Pages/ExcursionList";
 export default {
   name: 'App',
   components: {
-    // NavBar,
     ExcursionList,
   },
 

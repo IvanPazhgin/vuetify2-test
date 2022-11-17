@@ -10,15 +10,6 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Комментарии разработчика
+1. Для демонстрации отрисвоки только тех тегов, которые должны полностью влезать в область отрисовки, следует сузить ширину браузера
+2. Условия отсутсвия жесткого задания высоты и отсутсвия завязки на жестком размере шрифта выполняются благодаря использованнию относительного размера шрифта без жестких привязок.
