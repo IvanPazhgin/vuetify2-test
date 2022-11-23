@@ -1,10 +1,18 @@
 <template>
-     <span>
-<!--       <v-icon v-if="indexTag"> {{ separator }}</v-icon>-->
+  <div class="excursion-tag"
+       ref="excursion_tag"
+  >
+    <div
+        :ref="hiddenTag"
+        :class="{
+            hide: !hiddenTag,
+            'excursion-tag2': true
+        }"
+    >
        <v-icon v-if="icon"> {{ icon }} </v-icon>
        {{text}}
-       <!--     <em>{{followTopItem}}</em>-->
-     </span>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -19,52 +27,62 @@ export default {
       type: String,
       required: false,
     },
-    // followTopItem: {
-    //   type: Number,
-    //   required: true,
-    // },
-    // indexTag: {
-    //   type: Number,
-    //   required: true,
-    // },
+    followTopItem: {
+      type: Number,
+      required: true,
+    },
+    // indexTag: { type: Number, required: true },
   },
-
   data: () => ({
-    separator: 'mdi-circle-small',
+    // separator: 'mdi-circle-small',
     hiddenTag: true,
   }),
+  mounted() {
+    this.getDimensions()
+    window.addEventListener('resize', this.getDimensions);
+  },
+  unmounted() {
+    window.removeEventListener('resize', this.getDimensions);
+  },
 
-  // mounted() {
-  //   this.getDimensions()
-  //   window.addEventListener('resize', this.getDimensions);
-  // },
-  // unmounted() {
-  //   window.removeEventListener('resize', this.getDimensions);
-  // },
-
-  // methods: {
-  //   getDimensions() {
-  //      // for (let i = 0; i < this.tags.length; i++) {
-  //      //  const key = `tag${i}` // шаблоны
-  //      //  if (this.$refs[key]) {
-  //         console.log(this.$refs)
-  //         const key = `tag${this.indexTag}`
-  //         const top = this.$refs[key][0].getBoundingClientRect().top
-  //         console.log('followTopItem in Child', this.followTopItem)
-  //         console.log(`topInChild = ${top}`)
-  //         if (this.followTopItem === top) {
-  //           this.hiddenTag = true
-  //           // this.$refs[key][0].display = 'block'
-  //         }
-  //         else {
-  //           this.hiddenTag = false
-  //           // this.$refs[key][0].display = 'none'
-  //         }
-  //     //   } // if (this.$refs[key])
-  //     // } // for (let i = 0; i < this.tags.length; i++)
-  //   }
-  // },
+  methods: {
+    getDimensions() {
+          const top = this.$refs.excursion_tag.getBoundingClientRect().top
+          console.log('followTopItem in Child', this.followTopItem)
+          console.log(`topInChild = ${top}`)
+          if (this.followTopItem === top) {
+            // this.$refs.excursion_tag.style.setProperty('--display', 'none')
+            this.hiddenTag = true
+            // this.$refs.excursion_tag.style.display = 'block'
+            // this.$refs[key][0].display = 'block'
+          }
+          else {
+            // this.$refs.excursion_tag.style.setProperty('--display', 'flex')
+            this.hiddenTag = false
+            // this.$refs.excursion_tag.style.display = 'none'
+            // this.$refs[key][0].display = 'none'
+          }
+    }
+  },
 }
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+//:root {
+//  --display: 'block',
+//}
+.excursion-tag {
+  display: flex;
+  flex-wrap: wrap;
+  //overflow: hidden;
+  .excursion-tag2 {
+    //display: var(--display);
+    //&.hide{display: none}
+    //overflow: var(--display)
+    &.hide{display: none}
+    white-space: nowrap;
+    //&.hide{overflow: hidden}
+  }
+}
+
+</style>
