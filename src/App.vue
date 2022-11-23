@@ -1,8 +1,34 @@
 <template>
   <v-app>
     <v-main>
-        <excursion-list :excursions="excursions" />
+<!--      <h4 class="header">Компонент на всю ширину экрана с выравниванием по левому краю</h4>-->
+      <h4>Компонент на всю ширину экрана с выравниванием по левому краю</h4>
+      <excursion-list :excursions="excursions" :justify-content="justifyContent.left" />
+
+      <hr>
+      <h4>Компонент на всю ширину экрана с выравниванием по ширине</h4>
+      <excursion-list :excursions="excursions" :justify-content="justifyContent.width" />
 <!--        <excursion-list :excursions="excursions" :separator="separator.icon" />-->
+
+      <hr>
+      <v-row no-gutters >
+        <v-col class="pa-1">
+          <h4>Компонент на 50% ширины экрана с выравниванием по левому краю</h4>
+          <v-card outlined tile >
+            <excursion-list :excursions="excursions" :justify-content="justifyContent.left" />
+          </v-card>
+        </v-col>
+        <v-col class="pa-1">
+          <h4>Компонент на 50% ширины экрана с выравниванием по ширине</h4>
+          <v-card
+              outlined
+              tile
+          >
+            <excursion-list :excursions="excursions" :justify-content="justifyContent.width" />
+          </v-card>
+        </v-col>
+      </v-row>
+
     </v-main>
   </v-app>
 </template>
@@ -62,9 +88,20 @@ export default {
         ],
       },
     ],
+    justifyContent: {
+      left: 'flex-start',
+      width: 'space-between',
+    },
     // separator: {icon: 'mdi-circle-small'},
   }),
 };
 </script>
 
 <style scoped></style>
+
+<!--<style lang="scss" scoped>-->
+<!--$colorH4: 'red';-->
+<!--  .header {-->
+<!--    color: $colorH4;-->
+<!--  }-->
+<!--</style>-->

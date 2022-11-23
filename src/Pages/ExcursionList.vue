@@ -1,10 +1,10 @@
 <template>
-  <v-container>
+  <div>
     <div v-for="{id, title, tags} in excursions" :key="id">
 <!--      <excursion-item :title="title" :tags="tags" :separator-icon="separator" />-->
-      <excursion-item :title="title" :tags="tags" />
+      <excursion-item :title="title" :tags="tags" :justify-content="justifyContent" />
     </div>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -15,8 +15,12 @@ export default {
 
   props: {
     excursions: {
-      type: Object,
+      type: Array,
       required: true
+    },
+    justifyContent: {
+      type: String,
+      required: true,
     },
     // separator: {
     //   type: String,
