@@ -3,7 +3,6 @@
        ref="excursion_tag"
   >
     <div
-        :ref="hiddenTag"
         :class="{
             hide: !hiddenTag,
             'excursion-tag2': true
@@ -39,6 +38,7 @@ export default {
   }),
   mounted() {
     this.getDimensions()
+    window.addEventListener('load', this.getDimensions);
     window.addEventListener('resize', this.getDimensions);
   },
   unmounted() {
@@ -48,8 +48,8 @@ export default {
   methods: {
     getDimensions() {
           const top = this.$refs.excursion_tag.getBoundingClientRect().top
-          console.log('followTopItem in Child', this.followTopItem)
-          console.log(`topInChild = ${top}`)
+          // console.log('followTopItem in Child', this.followTopItem)
+          // console.log(`topInChild = ${top}`)
           if (this.followTopItem === top) {
             // this.$refs.excursion_tag.style.setProperty('--display', 'none')
             this.hiddenTag = true
@@ -72,17 +72,16 @@ export default {
 //  --display: 'block',
 //}
 .excursion-tag {
-  display: flex;
-  flex-wrap: wrap;
+  //display: flex;
+  //flex-wrap: wrap;
   //overflow: hidden;
   .excursion-tag2 {
     //display: var(--display);
     //&.hide{display: none}
-    //overflow: var(--display)
-    &.hide{display: none}
-    white-space: nowrap;
     //&.hide{overflow: hidden}
+    //overflow: var(--display)
+    &.hide{visibility: hidden}
+    //white-space: nowrap;
   }
 }
-
 </style>
