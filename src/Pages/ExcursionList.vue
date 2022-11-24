@@ -1,7 +1,6 @@
 <template>
   <div>
     <div v-for="{id, title, tags} in excursions" :key="id">
-<!--      <excursion-item :title="title" :tags="tags" :separator-icon="separator" />-->
       <excursion-item :title="title" :tags="tags" :justify-content="justifyContent" />
     </div>
   </div>
@@ -22,10 +21,6 @@ export default {
       type: String,
       required: true,
     },
-    // separator: {
-    //   type: String,
-    //   required: true
-    // },
   }
 }
 </script>

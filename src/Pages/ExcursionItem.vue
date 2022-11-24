@@ -8,7 +8,7 @@
            v-for="({text, icon}, index) in generalArray"
            :key="index"
       >
-        <excursion-tag :text="text" :icon="icon" :follow-top-item="followTop" :index-tag="index" />
+        <excursion-tag :text="text" :icon="icon" :follow-top-item="followTop" />
       </div>
     </div>
   </div>
@@ -40,10 +40,6 @@ export default {
       type: String,
       required: true,
     },
-    // separatorIcon: {
-    //   type: String,
-    //   required: true
-    // }
   },
 
   mounted() {

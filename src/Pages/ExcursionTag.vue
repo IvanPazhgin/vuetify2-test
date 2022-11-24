@@ -30,10 +30,8 @@ export default {
       type: Number,
       required: true,
     },
-    // indexTag: { type: Number, required: true },
   },
   data: () => ({
-    // separator: 'mdi-circle-small',
     hiddenTag: true,
   }),
   mounted() {
@@ -75,13 +73,15 @@ export default {
   //display: flex;
   //flex-wrap: wrap;
   //overflow: hidden;
+
   .excursion-tag2 {
     //display: var(--display);
     //&.hide{display: none}
     //&.hide{overflow: hidden}
     //overflow: var(--display)
-    &.hide{visibility: hidden}
+    &.hide{ visibility: hidden }
     //white-space: nowrap;
+    //position: absolute;
   }
 }
 </style>
